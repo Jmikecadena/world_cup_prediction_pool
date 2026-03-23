@@ -22,7 +22,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -179,12 +179,28 @@ li:hover {
     cursor: pointer;
 }
 
+#como-funciona-items {
+    position: relative;
+    background-image: linear-gradient(to bottom, #060f18, #0d1b2a);
+}
+
+#texture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/stars_texture.jpg");
+    opacity: 0.20;
+    z-index: 0;
+}
+
 .como-funciona,
     .premios {
+    position: relative;
+    z-index: 1;
     display: block;
     margin: 100px auto;
     text-align: center;
-    width: 80%
+    width: 80%;
 }
 
 .funciona {
@@ -197,10 +213,17 @@ li:hover {
     border: 1px solid rgb(249, 248, 213);
     line-height: 1.6;
     vertical-align: top;
+    box-shadow: 20px 20px 20px #102135;
+    background-image: linear-gradient(120deg, #0d1b2a, #0a0a0f);
+
 }
 
 .funciona:hover {
     border: 2px solid #c9a84c; 
+}
+
+#first {
+    margin-top: 60px;
 }
 
 #first:hover {
@@ -208,11 +231,37 @@ li:hover {
 }
 
 #second:hover {
-    background-color:  	rgba(192, 192, 192, 0.5);
+    background-color: rgba(192, 192, 192, 0.5);
 }
 
 #third:hover {
     background-color: rgba(191, 137, 112, 0.5);
+}
+
+#premios-items {
+    position: relative;
+    background-image: linear-gradient(120deg, #12253a, #0a0a0f);
+}
+
+#premios-bg {
+    position: absolute;
+    background-image: url("./assets/wc-wallpaper.jpg");
+    opacity: 0.08;
+    filter: saturate(20%);
+    filter: blur(6px);
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.posiciones {
+    margin-top: 18px;
+    flex-direction: column;
+    border: 2px solid rgba(103, 100, 1, 0.5);
+}
+
+.premios p {
+    color: #cbc7b9;
 }
 
 footer {
@@ -266,10 +315,6 @@ footer {
 #navegacion {
     width: auto;
     height: 300px;
-}
-
-.nave-items {
-    
 }
 
 #footer-ul {
@@ -365,6 +410,6 @@ h4 {
 p{
     font-family: Oswald, sans-serif;
     font-size: 20px;
-    color: #6a6862;
+    color: #949187;
     line-height: 1.6;
 }
