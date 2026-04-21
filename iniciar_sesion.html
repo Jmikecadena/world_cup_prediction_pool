@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Polla Mundialista</title>
+    <link rel="stylesheet" href="./styles/login.css">
+    <script src="./js/login.js" defer type="module"></script>
+    <script src="./js/buttons.js" defer></script>
 </head>
 <body>
-    
-</body>
-</html>
+    <div class="hero">
+        <div class="bg-img">
+            <img src="./assets/login_regis_imgbg.jpg" />
+        </div>
+        <div class="content-block">
+            <nav>
+                <img id='nav-logo' data-href="./index.html" src='./assets/nav_logo.png' alt="Logo - Polla Mundialista" />
+            </nav>
+            <img id="wc-icon" src="./assets/wc-icon.png" />                                                                                                         
+            <h2>Bienvenido de vuelta</h2>
+            <div class="google-ctr">
+                <img id="google-pic" src="./assets/google-btn.png">
+                <button id="google-button">
+                    Continuar con Google
+                </button>
+            </div>
+            <p>o</p>
+            <input type="email" placeholder="Introduce email o nombre de usuario" />
+            <button id="continue-btn"><strong>Continuar</strong></button>
+            <div class="bottom-content">
+                <p>¿No tienes cuenta todavía? <u><a id="register" href="./register.html">Regístrate</a></u></p>
+            </div>                                                                      
+        </div>
+    </div>
+</body>                                                                                                                                                                                                                                                                                                                        

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(120deg, #12253a, #0a0a0f);
+}
+
+
+.hero {
+    display: flex;
+    position: relative;
+    height: 100vh;
+}
+
+nav {
+    position: absolute;
+    top: 30px;
+    left: 35px;
+}
+
+#nav-logo {
+    height: 60px;
+    width: auto; 
+}
+
+#nav-logo:hover {
+    cursor: pointer;
+}
+
+.bg-img {
+    flex: 1;
+    overflow: hidden;
+}
+
+.bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.content-block {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 2.5;
+    text-align: center;
+    position: relative; 
+}
+
+#wc-icon {
+    height: 100px;
+    width: auto;
+}
+
+.google-ctr {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+                    
+#google-button {
+    width: 280px;
+    height: 42px;
+    background-color: #e0e0cc;
+    border-radius: 20px;
+    box-shadow: 0 3px 4px 0 rgba(29, 27, 27, 0.5);
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: box-shadow .3s ease;
+    font-family: roboto;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    z-index: 0;
+}                 
+
+#google-pic {
+    height: 20px;
+    width: auto;
+    position: absolute;
+    left: 15px;
+    z-index: 1;
+}
+
+input {
+    border-radius: 7px;
+    border: 1px solid #e0e0cc;
+    background-color: transparent;
+    color: #fafade;
+    width: 280px;
+    height: 30px;
+    font-family: roboto;
+    padding: 10px;
+}
+
+#continue-btn {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #c9a84c;
+    width: 280px;
+    height: 52px;
+    cursor: pointer;
+    font-family: roboto;
+    font-size: 15px;
+    color: #20201c
+}
+
+#continue-btn:hover {
+    background-color: #987f3a;
+    opacity: (0.15);
+    cursor: pointer;
+}
+
+.bottom-content {
+    flex-direction: column;
+}
+
+#register {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2 {
+    font-family: roboto;
+    color: rgb(232, 199, 106);
+    font-size: 30px;
+}
+
+p {
+    font-family: Oswald, sans-serif;
+    color: rgb(249, 248, 213);
+}
+
+u {
+    cursor: pointer;
+}

@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(10, 17, 30);
+    min-width: 1000px;
+}
+
+html {
+    font-family: Oswald;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groups-nav {
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: auto;
+    gap: 30px;
+}
+
+nav { 
+    position: relative;
+    font-family: none;
+}
+
+#groups {
+    background-color: rgba(11, 15, 19, 0.4); 
+    width: 100%;
+    height: 64px;
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; 
+}
+
+#groups li{
+    margin-left: -70px;
+    font-family: none;
+    display: inline-block;
+    padding: 4em; 
+}
+
+li:hover { 
+    color: #f1c959;
+    cursor: pointer;
+}
+
+
+.nav-buttons {
+    color: #e8c76a;
+    background-color: transparent;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+}
+
+.prediction-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+#bg-texture {
+    background-image: url("../assets/black-texture.jpg");
+    position: fixed;
+    z-index: 0;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+#bg-image {
+    background-image: url("../assets/flags_bg.png");
+    position: fixed;
+    z-index: 1;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.13;
+    filter:grayscale(70%);
+    filter: blur(4px);
+}
+
+.btn-grupo {
+    border-radius: 100%;         
+    font-size: 16px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(1, 12, 18, 0.3);
+    color: rgb(249, 248, 213);
+    border: 1.8px solid rgb(74, 74, 55);
+}
+
+.btn-grupo:hover {
+    cursor: pointer;
+    background-color: rgb(135, 116, 61);
+}
+
+.group-name {
+    color: #f1c959;
+    font-size: 35px; 
+    margin-top: 50px;
+}
+
+table {
+    table-layout: fixed;
+    width: 45%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: rgba(1, 12, 18, 0.3);
+    border-radius: 35px;
+}
+
+th,
+td {
+    color: rgb(249, 248, 213);
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+td {                                                                                                                                                                                                                
+    border-bottom: 1px solid rgba(249, 248, 213, 0.2);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.row-1 {
+    background-color: rgba(rgb(211, 215, 206, 0.8));
+}
+
+#pos-table {
+    padding-top: 50px;
+}
+
+tr > td:nth-child(3),
+tr > td:nth-child(4) {
+    text-align: center;
+    width: 15%;
+    padding: 1em 1em;
+}
+
+tr > td:nth-child(1) {
+    width: 8%;
+    text-align: center;
+    padding: 0.5em 2em;
+}
+
+tr > td:nth-child(2) {
+    width: 62%;
+    padding: 0.5em 3em;
+}
+
+tr > td:nth-child(2) {
+    width: 62%;
+    padding: 0.5em 3em;
+}
+
+tr:nth-child(-n+3):not(:first-child) td {
+    background-color: rgba(26, 113, 2, 0.2);
+}
+
+tr:nth-child(4) td {
+    background-color: rgba(111, 113, 2, 0.2);
+}
+
+.nombres {
+    color: rgba(249, 248, 213, 0.4);
+    text-transform: none;
+    font-weight: 350;
+}
+
+#pais {
+    text-align: left;
+}
+
+.country-cell {
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.pais-id {
+    width: 60px;
+}
+
+#td-1 {
+    top: 500px;
+    justify-content: flex-start;
+}
+
+.flag-matches,
+.flag-message {
+  width: 35px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block; 
+  position: relative;
+
+}
+
+#flagmatches-local {
+    position: relative;
+    right: 35px;
+}
+
+#flagmatches-visitante {
+    position: relative;
+    left: 35px;
+}
+
+.flags-table {
+    width: 28px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.matches-container {
+    flex-direction: column;
+    margin-top: 75px;
+}
+
+.matches-A {
+    margin-top: 70px;
+    flex-direction: column;
+    position: relative;
+}
+
+.match-card {
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+}
+
+.match-vs {
+    gap: 75px;
+    margin-top: -50px;
+    padding: 10px 175px 120px;
+    background-color: rgba(1, 12, 18, 0.3);
+    border-radius: 35px;
+}
+
+
+.match-buttons {
+    position: relative;
+    gap: 120px;
+    bottom: 110px;
+    justify-content: center;
+}
+
+.match-buttons button {
+    font-size: 12px;
+    background-color: #dac896;
+    color: rgb(64, 64, 56);
+    border: none;
+    padding: 6px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.match-buttons button:hover {
+    background-color: #6e654c;
+}
+
+.match-buttons::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 190%;
+    border-bottom: 1px solid rgba(249, 248, 213, 0.2);
+}
+
+.match-info {
+    position: relative;
+    bottom: 80px;
+    color: rgba(249, 248, 213, 0.6);
+}
+
+.margen {
+    position: relative;
+}
+
+.margen select {
+    background-color: transparent;
+    border: 2px solid rgba(1, 12, 18, 0.8);;
+    border-radius: 15px;
+    color: #fff6dd;
+    padding: 6px 18px;
+    font-size: 15px;
+}
+
+.who-wins {
+    position: absolute;
+    bottom: 175px;
+    color: #d0c8b2;
+    gap: 15px;
+}
+
+#message-local{
+    left: 350px;
+}
+
+#message-visitante{
+    right: 350px;
+}
+
+h2 {
+    color: rgb(249, 248, 213);
+}

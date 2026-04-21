@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polla mundialista</title>
+    <link rel="stylesheet" href="./styles/nav-footer.css">
+    <link rel="stylesheet" href="./styles/third_places.css">
+    <script src="./js/buttons.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+    <script type="module" src="./js/nav.js"></script>
+</head>
+<body>
+    <div id="bg-texture"></div>
+    <div id="bg-image"></div>
+    <div class="prediction-content">
+        <nav>
+            <img id='nav-logo' data-href="./index.html" src='./assets/nav_logo.png' alt="Logo - Polla Mundialista">
+            <div class="nav-right">
+            <ul>
+                <li><a href="#como-funciona">Cómo funciona</a></li>
+                <li><a href="#footer">Contacto</a></li>
+                <li id="nav-login"><a href="./iniciar_sesion.html">Iniciar sesión</a></li>
+            </ul>
+            <button id="nav-button" data-href="./register.html">Regístrate</button>
+            <div id="nav-profile" style="display:none;">
+                <div id="nav-avatar-div">
+                    <img id="nav-avatar" src="" alt="Avatar">
+                    <span id="nav-inicial"></span>
+                </div>
+                <span id="nav-username"></span>
+                <button id="nav-logout">Cerrar sesión</button>
+            </div>
+        </div>
+        </nav>
+        
+        <section id="groups">
+            <div class="nav-elements">
+                <ul>
+                    <li><a class="nav-buttons" href="./predictions.html">Grupos</a></li>
+                    <li><a class="nav-buttons" href="./third_places.html">Terceros puestos</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h1>Mejores Terceros puestos</h1>
+            <h2>Los 8 mejores clasificarán</h2>
+        </section>
+
+        <section>
+            <table id="tabla-terceros">
+            </table>
+        </section>
+    </div>
+
+    <section>
+        <footer id="footer">
+            <div class="bloque-footer" id="polla-info">
+                <div class="logo-ypolla">
+                    <img id="footer-logo" src="./assets/nav_logo.png">
+                    <h4><span id="footer-la">LA</span><br><span
+                        id="footer-mundialista">POLLA MUNDIALISTA</span></h4>
+                </div>
+                <p id="info-p">La polla mundialista, la competencia que reune a los más sabios
+                    de la periferia; donde el fútbol se convierte en religión, los pronósticos en evangelio,
+                    y cada resultado en milagro o tragedia.
+                </p>
+            </div>
+            <div class="bloque-footer" id="navegacion">
+                <h4 class="footer-h4">NAVEGACIÓN</h4>
+                    <ul id="footer-ul">
+                    <div class="nave-items"></div>
+                        <li id="inicio-footer"><a href="./index.html#inicio">Inicio</a></li>
+                        <li><a href="./index.html#como-funciona">Cómo funciona</a></li>
+                        <li>Tabla de posiciones</li>
+                        <li>Mi pronóstico</li>
+                    </div>
+                    </ul>
+            </div>
+            <div class="bloque-footer" id="contacto">
+                <h4 class="footer-h4">CONTACTO</h4>
+                <div class="footer-contact">
+                    <img id="mail-logo" src="./assets/mail_logo.png">
+                    <p><span class="email-whats" id="email">EMAIL</span><br><span class="blank-p">pollamundialista
+                        @gmail.com</span></p>
+                </div>
+                <div class="footer-contact">
+                    <img id="whatsapp-icon-contact" src="./assets/whatsapp_icon.png">
+                    <p><span class="email-whats">WHATSAPP</span><br><span class="blank-p">315 5385322</span></p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <script type="module" src="./js/third-places.js"></script>
+</body>
