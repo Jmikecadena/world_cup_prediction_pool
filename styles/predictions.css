@@ -64,6 +64,11 @@ li:hover {
     padding: 5px 12px;
 }
 
+.nav-buttons.active {
+    border: 1px solid #c9a84c;
+    background-color: rgba(201, 168, 76, 0.15);
+}
+
 .prediction-content {
     position: relative;
     display: flex;
@@ -171,11 +176,11 @@ tr > td:nth-child(2) {
 }
 
 tr:nth-child(-n+3):not(:first-child) td {
-    background-color: rgba(26, 113, 2, 0.2);
+    background-color: rgba(29, 202, 2, 0.2);
 }
 
 tr:nth-child(4) td {
-    background-color: rgba(111, 113, 2, 0.2);
+    background-color: rgba(206, 210, 2, 0.2);
 }
 
 .nombres {

@@ -645,8 +645,8 @@ export const partidos = [
     },
 
     {
-        id: 'j6', grupo: 'J', local: 'ALG', flagLocal: 'dz', visitante: 'ARG',
-        flagVisitante: 'ar', fecha: '27 Jun', hora: '21:00 COL', ciudad: 'Kansas City',
+        id: 'j6', grupo: 'J', local: 'ALG', flagLocal: 'dz', visitante: 'AUT',
+        flagVisitante: 'at', fecha: '27 Jun', hora: '21:00 COL', ciudad: 'Kansas City',
         disputado: false
     },
 

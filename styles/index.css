@@ -1,9 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lato:wght@300;400;700&display=swap');
 
 body {
     margin: 0;
     padding: 0;
+    min-width: 1000px;
 }
 
 div {
@@ -146,8 +148,58 @@ div {
     display: block;
     margin: 100px auto;
     text-align: center;
+}
+
+.premios {
+    display: flexbox;
+}
+
+.como-funciona {
     width: 80%;
 }
+
+table {
+    table-layout: fixed;
+    width: 38%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: rgba(103, 104, 83, 0.2);
+    border-radius: 35px;
+    line-height: 4em;
+}
+
+th,
+td {
+    color: rgb(249, 248, 213);
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.premio-tabla {
+    line-height: 1.8;
+}
+
+#tabla-pnt {
+    display: block;
+    margin-top: 5px;
+    font-size: 15px;
+    opacity: 0.7;
+}
+
+td {                                                                                                                                                                                                                
+    border-bottom: 1px solid rgba(249, 248, 213, 0.128);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+td:last-child {
+    border-right: none;
+}
+
 
 .funciona {
     display: inline-block;
@@ -204,6 +256,7 @@ div {
     margin-top: 18px;
     flex-direction: column;
     border: 2px solid rgba(103, 100, 1, 0.5);
+    
 }
 
 .premios p {
@@ -212,11 +265,11 @@ div {
 
 h1 {
     text-align: center;
-    font-family: Oswald;
+    font-family: Oswald, sans-serif;
 }
 
 h2 {
-    font-family: Oswald;
+    font-family: Oswald, sans-serif;
     font-size: 60px;
     color: rgb(232, 199, 106);
     margin-bottom: 0;
@@ -231,12 +284,17 @@ h3 {
     
 }
 
+#momentos {
+    font-size: 35px;
+
+}
+
 h4 {
     color: rgb(232, 199, 106);
 }
 
 p{
-    font-family: Oswald, sans-serif;
+    font-family: Lato, sans-serif;
     font-size: 20px;
     color: #ffffff;
     line-height: 1.6;
