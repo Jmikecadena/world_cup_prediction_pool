@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/login.css">
     <script src="./js/login.js" defer type="module"></script>
     <script src="./js/buttons.js" defer></script>
+    <script type="module" src="./js/validation.js"></script>
 </head>
 <body>
     <div class="hero">
@@ -25,9 +26,32 @@
                     Continuar con Google
                 </button>
             </div>
-            <p>o</p>
-            <input type="email" placeholder="Introduce email o nombre de usuario" />
-            <button id="continue-btn"><strong>Continuar</strong></button>
+            <p id="o">o</p>
+            <p id="error-message"></p>
+            <div class="input-info">
+                <form id="form" novalidate>
+                    <div>
+                        <label for="email-input">
+                            <span>@</span>
+                        </label>
+                        <input required type="email" name='email'placeholder="Email" id="email-input" />
+                    </div>
+                    
+                    <div>
+                        <label for="password-input">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm296.5-223.5Q560-327 560-360t-23.5-56.5Q513-440 480-440t-56.5 23.5Q400-393 400-360t23.5 56.5Q447-280 480-280t56.5-23.5ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/></svg>
+                        </label>
+                        <div class="input-eye">
+                            <input required type="password" name="password" placeholder="Contraseña" id="password-input"/> 
+                            <img class="eye-close" src="./assets/eye_close.png">
+                        </div>
+                    </div>
+                    
+                    <button id="continue-btn" type="submit"><strong>Iniciar sesión</strong></button>
+                </form>
+                
+            </div>
+            
             <div class="bottom-content">
                 <p>¿No tienes cuenta todavía? <u><a id="register" href="./register.html">Regístrate</a></u></p>
             </div>                                                                      

@@ -50,8 +50,8 @@ div {
 
 #logo-hero {
     height: auto;
-    width: 250px;
-    filter: drop-shadow(0px 0px 18px rgba(232, 192, 74, 0.1));
+    width: 300px;
+    filter: drop-shadow(0px 0px 18px rgba(232, 192, 74, 0.05)) brightness(80%);
 }
 
 #hero-texture {
@@ -76,7 +76,7 @@ div {
     z-index: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.2;
+    opacity: 0.23;
     mask-image: linear-gradient(to bottom, rgb(5, 14, 27) 60%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, rgb(5, 14, 27) 60%, transparent 100%);
 }
@@ -120,6 +120,12 @@ div {
     border: 1px solid #c9a84c;
 }
 
+#reglas-doc {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
 #rules-button:hover {
     background-color: #413c30;
     opacity: 0.8;
@@ -151,16 +157,21 @@ div {
 }
 
 .premios {
-    display: flexbox;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.premios-info{
+    flex-direction: column; 
+}
 .como-funciona {
     width: 80%;
 }
 
 table {
     table-layout: fixed;
-    width: 38%;
+    width: 720px;
     margin: auto;
     border-collapse: collapse;
     background-color: rgba(103, 104, 83, 0.2);
@@ -176,16 +187,32 @@ td {
     text-transform: uppercase;
 }
 
+.tablas-premios {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.tabla-momento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .premio-tabla {
     line-height: 1.8;
 }
 
-#tabla-pnt {
+.tabla-pnt {
     display: block;
-    margin-top: 5px;
     font-size: 15px;
-    opacity: 0.7;
+    opacity: 0.8;
+    color: rgb(246, 240, 222);
+    text-transform: initial;
 }
 
 td {                                                                                                                                                                                                                
@@ -198,6 +225,11 @@ tr:last-child td {
 
 td:last-child {
     border-right: none;
+}
+
+tr:first-child td{
+    border-right: none;
+    color: rgb(232, 199, 106);
 }
 
 
@@ -224,16 +256,21 @@ td:last-child {
     margin-top: 60px;
 }
 
-#first:hover {
+.first:hover {
     background-color: rgba(255, 215, 0, 0.4);
 }
 
-#second:hover {
+.second:hover {
     background-color: rgba(192, 192, 192, 0.5);
+}   
+
+.third:hover {
+    background-color: rgba(191, 137, 112, 0.5);
 }
 
-#third:hover {
-    background-color: rgba(191, 137, 112, 0.5);
+.fourth:hover, 
+.fifth:hover {
+    background-color: rgba(179, 179, 151, 0.2);
 }
 
 #premios-items {
@@ -244,7 +281,7 @@ td:last-child {
 #premios-bg {
     position: absolute;
     background-image: url("../assets/wc-wallpaper.jpg");
-    opacity: 0.08;
+    opacity: 0.12;
     filter: saturate(20%);
     filter: blur(6px);
     height: 100%;
@@ -260,7 +297,7 @@ td:last-child {
 }
 
 .premios p {
-    color: #cbc7b9;
+    color: #faf7ec;
 }
 
 h1 {
@@ -284,9 +321,9 @@ h3 {
     
 }
 
-#momentos {
-    font-size: 35px;
-
+.momenti {
+    font-size: 30px;
+    color: rgb(232, 199, 106)
 }
 
 h4 {
@@ -298,4 +335,63 @@ p{
     font-size: 20px;
     color: #ffffff;
     line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    body {
+        min-width: unset;
+    }
+
+    .hero-content h1 {
+        font-size: 52px;
+    }
+
+    #hero-x {
+        font-size: 52px;
+    }
+
+    .hero-images {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #wc-image {
+        width: 150px;
+    }
+
+    #logo-hero {
+        width: 180px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    table {
+        width: 90%;
+    }
+
+    .tablas-premios {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .funciona {
+        width: 85%;
+        margin: 30px auto;
+        display: block;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
 }

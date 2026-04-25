@@ -187,6 +187,11 @@ tr:nth-child(4) td {
     color: rgba(249, 248, 213, 0.4);
     text-transform: none;
     font-weight: 350;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1;
 }
 
 #pais {
@@ -304,12 +309,15 @@ tr:nth-child(4) td {
 }
 
 .margen select {
-    background-color: transparent;
-    border: 2px solid rgba(1, 12, 18, 0.8);;
+    background-color: rgb(10, 17, 30);
+    border: 2px solid rgba(249, 248, 213, 0.3);
     border-radius: 15px;
     color: #fff6dd;
     padding: 6px 18px;
     font-size: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
 }
 
 .who-wins {
@@ -329,4 +337,92 @@ tr:nth-child(4) td {
 
 h2 {
     color: rgb(249, 248, 213);
+}
+
+@media (max-width: 768px) {
+    body {
+        min-width: unset;
+    }
+
+    nav {
+        flex-wrap: nowrap;
+        height: 56px;
+        padding: 50px 12px;
+        box-sizing: border-box;
+    }
+
+    nav .nav-right ul {
+        display: none;
+    }
+
+    .groups-nav {
+        max-width: 95%;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    th, td {
+        font-size: 14px;
+    }
+
+    #groups li {
+        margin-left: 0;
+        padding: 0.5em 1em;
+    }
+
+    tr > td:nth-child(2) {
+        padding: 0.5em 0.75em;
+    }
+
+    tr > td:nth-child(3),
+    tr > td:nth-child(4) {
+        padding: 0.5em 0.5em;
+    }
+
+    .match-vs {
+        gap: 20px;
+        padding: 10px 30px 120px;
+    }
+
+    .match-buttons {
+        gap: 40px;
+    }
+
+    #message-local {
+        left: auto;
+    }
+
+    #message-visitante {
+        right: auto;
+    }
+
+    .who-wins {
+        bottom: 154px;
+    }
+
+    .margen {
+        position: relative;
+        left: auto !important;
+        right: auto !important;
+        bottom: 150px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    #flagmatches-local {
+        position: relative;
+        left: 2px
+    }
+
+    #flagmatches-visitante {
+        position: relative;
+        left: 2px
+    }
+
+
 }

@@ -36,11 +36,11 @@
             <h1><span id="la-polla">LA POLLA</span><br><span id="mundialista">MUNDIALISTA</span></h1>
             <div class="hero-images">
                 <img id="wc-image" src="./assets/wc_logo.png"><span id="hero-x">×</span>
-                <img id="logo-hero" src="./assets/polla_logo.png">
+                <img id="logo-hero" src="./assets/nav_logo.png">
             </div>
             <div class="hero-buttons">
                 <button id="play-button" data-href="./predictions.html">Juega Ahora</button>
-                <button id="rules-button">Lee las reglas</button>
+                <button id="rules-button"><a id='reglas-doc' href="./docs/Instrucciones de La Polla Mundialista.pdf" download="Instrucciones de La Polla Mundialista">Lee las reglas</a></button>
             </div>
         </div>                                                                                                              
     </section>                                                          
@@ -77,42 +77,72 @@
     <div id="premios-items">
         <div id="premios-bg"></div>
         <div class="premios">
-            <h2>Premiación</h2>
-            <p>Sucederá en dos momentos: al finalizar la fase de grupos y al finalizar la competición.</p>
-            <h3 id="momentos">Primer momento:</h3>
-        <table>
-        <tr>
-            <tr class="row-1">
-            <td>Posición</td>
-            <td class="premio-tabla">Premio<span id="tabla-pnt">(Porcentaje del total acumulado)</span></td>
-        </tr>
-        <tr>
-            <tr class="row-2" id="first">
-            <td>1°</td>
-            <td>10%</td>
-        </tr>
-        <tr>
-            <tr class="row-3" id="second">
-            <td>2°</td>
-            <td>7%</td>
-        </tr>
-        <tr>
-            <tr class="row-4" id="third">
-            <td>3°</td>
-            <td>5%</td>
-        </tr>
-        <tr>
-            <tr class="row-5">
-            <td id="forth">4°</td>
-            <td>3%</td>
-        </tr>
-        <tr>
-            <tr class="row-6" id="fifth">
-            <td>5°</td>
-            <td>2%</td>
-        </tr>
-        </table>
-        </div>
+            <div class="premios-info">
+                <h2>Premiación</h2>
+                <p>Sucederá en dos momentos: al finalizar la fase de grupos y al finalizar la competición.</p>
+            </div>
+            <div class="tablas-premios">
+                <div class="tabla-momento">
+                    <h3 class="momenti">Fase de grupos</h3>
+                    <table>
+                        <tr class="row-1">
+                            <td>Posición</td>
+                            <td class="premio-tabla">Premio<span class="tabla-pnt">(Porcentaje del total acumulado)</span></td>
+                        </tr>
+                        <tr class="first">
+                            <td>1°</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr class="second">
+                            <td>2°</td>
+                            <td>7%</td>
+                        </tr>
+                        <tr class="third">
+                            <td>3°</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr class="fourth">
+                            <td>4°</td>
+                            <td>3%</td>
+                        </tr>
+                        <tr class="fifth">
+                            <td>5°</td>
+                            <td>2%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tabla-momento">
+                    <h3 class="momenti">Fase final</h3>
+                    <table>
+                        <tr class="row-1">
+                            <td>Posición</td>
+                            <td class="premio-tabla">Premio<span class="tabla-pnt">(Porcentaje del total acumulado)</span></td>
+                        </tr>
+                        <tr class="first">
+                            <td>1°</td>
+                            <td>32%</td>
+                        </tr>
+                        <tr class="second">
+                            <td>2°</td> 
+                            <td>17%</td>
+                        </tr>
+                        <tr class="third">
+                            <td>3°</td>
+                            <td>12%</td>
+                        </tr>
+                        <tr class="fifth">
+                            <td>4°</td>
+                            <td>6%</td>
+                        </tr>
+                        <tr class="fourth">
+                            <td>5°</td>
+                            <td>3%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>    
     </div>
 
     <section>
@@ -133,9 +163,9 @@
                     <ul id="footer-ul">
                     <div class="nave-items"></div>
                         <li id="inicio-footer"><a href="#inicio">Inicio</a></li>
-                        <li><a href="#como_funciona">Cómo funciona</a></li>
+                        <li><a href="#como-funciona">Cómo funciona</a></li>
+                        <li><a href="./predictions.html">Mi pronóstico</a></li>
                         <li>Tabla de posiciones</li>
-                        <li>Mi pronóstico</li>
                     </div>
                     </ul>
             </div>
@@ -143,8 +173,7 @@
                 <h4 class="footer-h4">CONTACTO</h4>
                 <div class="footer-contact">
                     <img id="mail-logo" src="./assets/mail_logo.png">
-                    <p><span class="email-whats" id="email">EMAIL</span><br><span class="blank-p">pollamundialista
-                        @gmail.com</span></p>
+                    <p><span class="email-whats" id="email">EMAIL</span><br><span class="blank-p">lpollamundialista@gmail.com</span></p>
                 </div>
                 <div class="footer-contact" id="contact">
                     <img id="whatsapp-icon-contact" src="./assets/whatsapp_icon.png">

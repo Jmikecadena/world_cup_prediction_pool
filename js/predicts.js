@@ -156,7 +156,7 @@ const idWhowins = matchId => {
 
 const dibujarBotonesMargen = matchId => {
     const prediccion = predicciones.find(p => p.matchId === matchId);
-    if (prediccion && prediccion.resultado === 'local' || prediccion.resultado === 'visitante') {
+    if (prediccion && (prediccion.resultado === 'local' || prediccion.resultado === 'visitante')) {
         const mensaje = prediccion.margen;
         return `
             <select class="margen-select">
@@ -301,7 +301,7 @@ const obtenerPrediccionUsuario = () => {
                     setDoc(doc(db, "predicciones", userId, "partidos", matchId), {                                                                                                                                          
                     resultado: result,                                                                                                                                                                                    
                     margen: prediccion.margen
-                }).then(() => console.log("Guardado:", matchId, result));                                                                                                                                                                                                       
+                })                                                                                                                                                                                                     
             }    
             unHoverBotton(button);
             

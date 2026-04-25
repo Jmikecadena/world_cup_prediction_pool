@@ -23,7 +23,8 @@ nav li a {
     text-decoration: none;
 }
 
-li:hover {
+footer li:hover,
+footer li:hover a {
     color: #f1c959;
     cursor: pointer;
 }
@@ -230,4 +231,113 @@ footer p {
     font-family: Lato, sans-serif;
     color: #cac4b1;
     font-weight: 200;
+}
+
+@media (max-width: 768px) {
+    nav {
+        min-width: unset;
+        height: auto;
+        padding: 8px 0px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    nav li {
+        padding: 0.4em 0.6em;
+        margin-right: 0px;
+    }
+
+    #nav-logo {
+        height: 36px;
+        margin-left: 12px;
+    }
+
+    #nav-button {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    #nav-logout {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    #nav-profile {
+        margin-right: 10px;
+        gap: 6px;
+    }
+
+    #nav-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    #nav-inicial {
+        font-size: 13px;
+        padding: 0 0.5em;
+    }
+
+    footer {
+        min-width: unset;
+        flex-direction: column;
+        min-height: auto;
+        padding: 24px 16px;
+        align-items: flex-start;
+    }
+
+    #polla-info {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+
+    #footer-logo {
+        height: 38px;
+    }
+
+    .footer-h4 {
+        font-size: 16px;
+    }
+
+    #info-p {
+        font-size: 15px;
+    }
+
+    footer li {
+        font-size: 15px;
+    }
+
+    #footer-right {
+        flex-direction: column;
+        gap: 20px;
+        padding-right: 0;
+        padding: 0 16px 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #navegacion {
+        height: auto;
+    }
+
+    #contacto {
+        width: 100%;
+        padding: 16px 16px 0;
+        box-sizing: border-box;
+    }
+
+    #contact {
+        bottom: 0;
+    }
+
+    .footer-contact {
+        bottom: 0;
+        gap: 16px;
+    }
+
+    #whatsapp-icon-contact,
+    #mail-logo {
+        height: 28px;
+    }
 }

@@ -6,6 +6,10 @@ body {
     background-image: linear-gradient(120deg, #12253a, #0a0a0f);
 }
 
+html {
+    font-family: Lato, sans-serif;
+}
+
 
 .hero {
     display: flex;
@@ -46,7 +50,7 @@ nav {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    line-height: 2.5;
+    line-height: 1;
     text-align: center;
     transition: width 0.5s ease-in-out;
     position: relative;
@@ -100,27 +104,75 @@ nav {
     z-index: 1;
 }
 
-input {
-    border-radius: 7px;                                                                                     
-    border: 1px solid #e0e0cc;
-    background-color: transparent;
+#o {
+    margin-bottom: 5px;
+}
+form {
+    width: min(400px, 100%);
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+form label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background-color: #c9a84c;
+    fill: #fafade;
     color: #fafade;
-    width: 280px;
-    height: 30px;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+}
+
+form input {
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    border-radius: 0 10px 10px 0;
+    border:  rgba(201, 168, 76, 0.7);
+    background-color: rgba(151, 127, 60, 0.815) ;
+    border-left: none;
+    color: #f8f8eb;
     font-family: roboto;
-    padding: 10px;
+    padding: 1em 1.5em;
+    transition: 150ms ease;
+}
+
+form input:hover {
+    outline: 2px solid #f9f9bc;
+}
+
+form input:focus {
+  outline: none; 
+  border-color: rgb(249, 248, 227); 
+}
+div:has(input:focus) > label {
+    background-color:#8b7435;;
 }
 
 #continue-btn {
-    margin-top: 20px;
+    margin-top: 10px;
+    border: none;
+    padding: 1em 4em;
     border-radius: 20px;
     background-color: #c9a84c;
-    width: 280px;
-    height: 52px;
     cursor: pointer;
+    font-weight: 500;
     font-family: roboto;
     font-size: 15px;
-    color: #20201c
+    color: rgb(249, 249, 227);
+    transition: 150ms ease ;
 }
 
 #continue-btn:hover {
@@ -129,9 +181,21 @@ input {
     cursor: pointer;
 }
 
+#continue-btn:focus {
+    outline: none;
+}
 
 .bottom-content {
     flex-direction: column;
+    margin-top: 15px;
+}
+
+.eye-close {
+    position: absolute;
+    margin: 19px -40px;
+    filter: brightness(225%);
+    width: 20px;
+    cursor: pointer;
 }
 
 #register {
@@ -145,10 +209,54 @@ h2 {
 }
 
 p {
-    font-family: Oswald, sans-serif;
+    font-family: Lato, sans-serif;
     color: rgb(249, 248, 213);
 }
 
 u {
     cursor: pointer;
+}
+
+@media(max-width: 1100px){
+    .bg-img {
+        display: none;
+    }
+
+    .content-block{
+        width: min(400px, 100%);
+        border-radius: 0;
+        overflow-y:auto;
+        font-size: 8px
+    }
+
+    #o {
+        font-size: 10px;
+    }
+
+    p{
+        font-size: 10px;
+    }
+
+    .input-info {
+        position: relative;
+        bottom: 10px;
+    }
+
+    #nav-logo {
+        display: none;
+    }
+    #wc-icon {
+        height: 60px;
+    }
+}
+
+form div.incorrect label {
+    background-color: #f63d3d;
+}
+form div.incorrect input {
+    border-color: #f63d3d;
+}
+
+#error-message {
+    color: #f63d3d 
 }
