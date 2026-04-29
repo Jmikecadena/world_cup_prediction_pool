@@ -55,6 +55,21 @@ li:hover {
     cursor: pointer;
 }
 
+#href-fix {
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    padding: 0 20px; 
+    opacity: 0;
+}
+
+nav { 
+    z-index: 0;
+    position: relative;
+    font-family: none;
+}
+
 
 .nav-buttons {
     color: #e8c76a;
@@ -66,7 +81,7 @@ li:hover {
 
 .nav-buttons.active {
     border: 1px solid #c9a84c;
-    background-color: rgba(201, 168, 76, 0.15);
+    background-color: rgba(201, 168, 76, 0.08);
 }
 
 .prediction-content {

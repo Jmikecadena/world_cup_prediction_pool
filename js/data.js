@@ -513,7 +513,7 @@ export const partidos = [
     },
 
     {
-        id: 'g2', grupo: 'G', local: 'IRN', flagLocal: 'IR', visitante: 'NZL',
+        id: 'g2', grupo: 'G', local: 'IRN', flagLocal: 'ir', visitante: 'NZL',
         flagVisitante: 'nz', fecha: '15 Jun', hora: '20:00 COL', ciudad: 'Los Angeles',
         disputado: false
     },

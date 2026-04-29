@@ -6,20 +6,21 @@
     <title>Polla mundialista</title>
     <link rel="stylesheet" href="./styles/nav-footer.css">
     <link rel="stylesheet" href="./styles/third_places.css">
+    <script type="module" src="./js/nav.js"></script>
     <script src="./js/buttons.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
-    <script type="module" src="./js/nav.js"></script>
 </head>
 <body>
     <div id="bg-texture"></div>
     <div id="bg-image"></div>
     <div class="prediction-content">
+        <a id="href-fix"href="/index.html"><p>'a'</p></a>
         <nav>
-        <img id='nav-logo' data-href="./index.html#inicio" src='./assets/nav_logo.png' alt="Logo - Polla Mundialista">
+        <a href="/index.html"><img id='nav-logo' src='./assets/nav_logo.png' alt="Logo - Polla Mundialista"/></a>
         <div class="nav-right">
             <ul>
-                <li><a href="#como-funciona">Cómo funciona</a></li>
-                <li><a href="#footer">Contacto</a></li>
+                <li><a href="./index.html#como-funciona">Cómo funciona</a></li>
+                <li><a href="./index.html#footer">Contacto</a></li>
                 <li id="nav-login"><a href="./iniciar_sesion.html">Iniciar sesión</a></li>
             </ul>
             <button id="nav-button" data-href="./register.html">Regístrate</button>
@@ -43,7 +44,24 @@
             </div>
         </section>
 
+        <div id="popup" popover>
+            <div id="popup-content">
+                <div class="popup-text">
+                    <h2>Países empatados en el 8vo puesto</h2>
+                    <h3 id="second-head-popup">Se requiere desempate manual</h3>
+                </div>
+                <div id="popup-equipos">
+                </div>
+                <div class="popup-text">
+                    <h3>Todos los criterios de empate están igualados</h3>
+                    <h3 id="elige-popup">Elige quién pasará a octavos de final</h3>
+                </div>
+            </div>
+            <button id="popup-cerrar">Guardar</button>
+        </div>
+
         <section>
+            <button id="popup-mostrar">Ordernar Octavos Puestos</button>
             <h1>Mejores Terceros puestos</h1>
             <h2>Los 8 mejores clasificarán</h2>
         </section>

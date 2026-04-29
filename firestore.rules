@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /predicciones/{userId} {
+      // Authenticated users can list/read all docs (needed for duplicate name check on signup)
+      allow read: if request.auth != null;
+      // Only the owner can write their own document
+      allow write: if request.auth != null && request.auth.uid == userId;
+
+      match /partidos/{matchId} {
+        // Only the owner can read/write their own predictions
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

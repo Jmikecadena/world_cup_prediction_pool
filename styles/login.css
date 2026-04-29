@@ -210,11 +210,9 @@ u {
 }
 
 @media(max-width: 1100px){
-    .bg-img,
-        #wc-icon {
+    .bg-img {
         display: none;
     }
-    
 
     .content-block{
         width: min(400px, 100%);

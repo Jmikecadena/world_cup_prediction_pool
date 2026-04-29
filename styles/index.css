@@ -342,6 +342,10 @@ p{
         min-width: unset;
     }
 
+    nav {
+        position: relative;
+    }
+
     .hero-content h1 {
         font-size: 52px;
     }
@@ -366,6 +370,10 @@ p{
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .funciona {
+        box-shadow: 10px 10px 10px #102135;
     }
 
     table {

@@ -55,7 +55,6 @@ const procesarPrediccionUsuario = (Id, resultado, margen) => {
         }
     }
 
-    console.log({ local: pais, visitante: pais2 }) 
     return { local: pais, visitante: pais2 }
 }
 
@@ -68,7 +67,8 @@ export const ordernarTabla = (grupo) => {
                 nombre: paises[i].nombre,
                 flag: paises[i].flag,
                 puntos: paises[i].puntos,
-                dg: paises[i].dg
+                dg: paises[i].dg,
+                golesAFavor: paises[i].golesAFavor
             });
         }
     }
@@ -282,7 +282,6 @@ const unHoverBotton = (button) => {
 
     clickedbuttons[matchId] = button.id;
     margen['margen'] = true;
-    console.log(clickedbuttons)
 }
 
 const obtenerPrediccionUsuario = () => {
