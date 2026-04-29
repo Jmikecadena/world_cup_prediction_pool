@@ -1,6 +1,6 @@
 import { db, auth } from "./firebase.js";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-import { doc, setDoc, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
 let eyeicon = document.querySelector(".eye-close")
 let password = document.getElementById("password-input")
@@ -134,12 +134,11 @@ allOfInputs.forEach(input => {
 const uploadRegistrationInfo = async (name, email, password) => {
     const credential = await createUserWithEmailAndPassword(auth, email, password);
     await updateProfile(credential.user, { displayName: name });
-    const userInfo = doc(db, "predicciones", credential.user.uid);
-    await setDoc(userInfo, { name, email }, { merge: true });
+    await setDoc(doc(db, "predicciones", credential.user.uid), { name }, { merge: true });
+    await setDoc(doc(db, "usernames", name), { uid: credential.user.uid });
 }
 
 const checkName = async name => {
-    const queryName = query(collection(db, "predicciones"), where("name", "==", name));
-    const nameSnap = await getDocs(queryName);
-    return nameSnap.empty;
+    const nameSnap = await getDoc(doc(db, "usernames", name));
+    return !nameSnap.exists();
 }
