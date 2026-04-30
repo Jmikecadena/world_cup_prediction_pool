@@ -4,9 +4,10 @@ import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase
 
 async function handleUser(user) {
     const userRef = doc(db, "predicciones", user.uid);
+    const email = user.email || user.providerData?.[0]?.email || null;
     await setDoc(userRef, {
         name: user.displayName,
-        email: user.email
+        email: email
     }, { merge: true });
     window.location.href = "./predictions.html";
 }
