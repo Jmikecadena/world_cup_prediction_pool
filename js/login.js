@@ -12,7 +12,7 @@ getRedirectResult(auth).then(async (result) => {
     const userRef = doc(db, "predicciones", user.uid);
     const userSnap = await getDoc(userRef);
     if (!userSnap.exists()) {
-        await setDoc(userRef, { name: user.displayName }, { merge: true });
+        await setDoc(userRef, { name: user.displayName, email: user.email }, { merge: true });
         await setDoc(doc(db, "usernames", user.displayName), { uid: user.uid });
     }
     window.location.href = "./predictions.html";
@@ -24,16 +24,7 @@ getRedirectResult(auth).then(async (result) => {
 const googleLogin = document.getElementById("google-button");
 googleLogin.addEventListener("click", function() {
     if (isMobile) {
-        signInWithRedirect(auth, provider).then(async (result) => {
-            const user = result.user;
-            const userRef = doc(db, "predicciones", user.uid);
-            const userSnap = await getDoc(userRef);
-            if (!userSnap.exists()) {
-                await setDoc(userRef, { name: user.displayName }, { merge: true });
-                await setDoc(doc(db, "usernames", user.displayName), { uid: user.uid });
-            }
-            window.location.href = "./predictions.html";
-        }).catch((error) => {
+        signInWithRedirect(auth, provider).catch((error) => {
             console.error(error.code, error.message);
         });
     } else {
@@ -42,7 +33,7 @@ googleLogin.addEventListener("click", function() {
             const userRef = doc(db, "predicciones", user.uid);
             const userSnap = await getDoc(userRef);
             if (!userSnap.exists()) {
-                await setDoc(userRef, { name: user.displayName }, { merge: true });
+                await setDoc(userRef, { name: user.displayName, email: user.email }, { merge: true });
                 await setDoc(doc(db, "usernames", user.displayName), { uid: user.uid });
             }
             window.location.href = "./predictions.html";

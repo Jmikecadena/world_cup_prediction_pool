@@ -213,6 +213,12 @@ p {
     color: rgb(249, 248, 213);
 }
 
+::placeholder {
+  color: rgb(249, 248, 213);
+  opacity: 1; /* Required for Firefox */
+}
+
+
 u {
     cursor: pointer;
 }
