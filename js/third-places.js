@@ -74,12 +74,14 @@ const checkTiedEightPlace = (tabla) => {
         }
     }
 
+    const allPredicted = predicciones.every(p => p.resultado);
+
     if (empatados.length <= 1) {
         popupButton.style.display = 'none';
         return;
-    } else {
-        popupButton.style.display = 'flex';
     }
+
+    popupButton.style.display = allPredicted ? 'flex' : 'none';
 
     const cupos = arrayMenosOcho.length;
     const popup = document.getElementById('popup');
@@ -100,7 +102,10 @@ const checkTiedEightPlace = (tabla) => {
             <span class='nums-popup-dg'>${e.golesAFavor}</span></p>
         </div>`
     ).join('');
-    popup.showPopover();
+
+    if (allPredicted) {
+        popup.showPopover();
+    }
     const arraySelected = []
 
     document.querySelectorAll(".info-equipos-popup").forEach(pais => {
@@ -160,7 +165,11 @@ const checkTiedEightPlace = (tabla) => {
         popup.hidePopover();
     };
 
-    popupButton.addEventListener("click", () => popup.showPopover());
+    popupButton.addEventListener("click", () => {
+        if (predicciones.every(p => p.resultado)) {
+            popup.showPopover();
+        }
+    });
 };
 
 onAuthStateChanged(auth, async (user) => {
