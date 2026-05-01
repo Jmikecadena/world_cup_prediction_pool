@@ -133,10 +133,12 @@ allOfInputs.forEach(input => {
 
 const uploadRegistrationInfo = async (name, email, password) => {
     const credential = await createUserWithEmailAndPassword(auth, email, password);
-    await updateProfile(credential.user, { displayName: name });
-    await setDoc(doc(db, "predicciones", credential.user.uid), { name }, { merge: true });
+    const email = user.email || user.providerData?.[0]?.email || null;
+
+    await updateProfile(credential.user, {email: email}, { displayName: name });                                                                            
+    await setDoc(doc(db, "predicciones", credential.user.uid), { email }, { name }, { merge: true });
     await setDoc(doc(db, "usernames", name), { uid: credential.user.uid });
-}
+}                                                   
 
 const checkName = async name => {
     try {
