@@ -32,7 +32,7 @@ form.addEventListener('submit', async (e) => {
 
     if (nameInput) {
         errors = await getSignupFormErrors(nameInput.value, emailInput.value,
-            passwordInput.value, repeatPasswordInput?.value);
+            passwordInput.value, repeatPasswordInput.value);
     } else {
         errors = getLoginFormErrors(emailInput.value, passwordInput.value);
     }
@@ -47,7 +47,7 @@ form.addEventListener('submit', async (e) => {
             } else {
                 await signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value);
             }
-            window.location.href = "../index.html";
+            window.location.href = "./index.html";
         } catch (err) {
             const firebaseErrores = {
             "auth/email-already-in-use": "El email ya está registrado.",
@@ -139,6 +139,10 @@ const uploadRegistrationInfo = async (name, email, password) => {
 }
 
 const checkName = async name => {
-    const nameSnap = await getDoc(doc(db, "usernames", name));
-    return !nameSnap.exists();
+    try {
+        const nameSnap = await getDoc(doc(db, "usernames", name));
+        return !nameSnap.exists();
+    } catch {
+        return true;
+    }
 }
