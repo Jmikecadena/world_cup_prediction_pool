@@ -185,9 +185,11 @@ div:has(input:focus) > label {
 
 .bottom-content {
     flex-direction: column;
+    line-height: 1.5em;
 }
 
-#register {
+#register,
+    #reset  {
     text-decoration: none;
     color: inherit;
 }
@@ -198,7 +200,7 @@ h2 {
     font-size: 30px;
 }
 
-p {
+p {                                                                             
     color: rgb(249, 248, 213);
 }
 
