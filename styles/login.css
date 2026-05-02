@@ -204,7 +204,7 @@ p {
 
 ::placeholder {
   color: rgb(249, 248, 213);
-  opacity: 1; /* Required for Firefox */
+  opacity: 1;
 }
 
 a {
