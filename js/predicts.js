@@ -338,7 +338,7 @@ const opcionesDesplegables = () => {
         });
     });
 }
-const cargarPrediccionesDeFirestore = async (userId) => {
+export const cargarPrediccionesDeFirestore = async (userId) => {
     const snapshot = await getDocs(collection(db, "predicciones", userId, "partidos"));
     snapshot.forEach(docSnap => {
         const predict = predicciones.find(p => p.matchId === docSnap.id);

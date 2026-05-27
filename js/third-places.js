@@ -1,7 +1,7 @@
 import { paises, predicciones } from "./data.js";
 import { resetearPaises, calcularTablaCompleta, ordernarTabla } from "./predicts.js"
 import { db, auth } from "./firebase.js";
-import { getDocs, collection } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+import { getDocs, collection, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 const calcularTablaTerceros = () => {
@@ -10,13 +10,14 @@ const calcularTablaTerceros = () => {
         const letra = String.fromCharCode(i);
         resetearPaises();
         let posiciones = calcularTablaCompleta(letra);
+        posiciones.tabla[2].posicion = `3${letra}`
         arrTerceros.push(posiciones.tabla[2])
     }
     resetearPaises();
     return arrTerceros;
 }
 
-const ordernarTablaTerceros = () => {
+export const ordernarTablaTerceros = () => {
     const equipos = calcularTablaTerceros();
 
     equipos.sort((a, b) => {
@@ -32,11 +33,10 @@ const ordernarTablaTerceros = () => {
 
 }
 
-const dibujarTablaTerceros = () => {
+export const dibujarTablaTerceros = () => {
     const container = document.getElementById("tabla-terceros")
     if (!container) return;
     let tabla = ordernarTablaTerceros();
-    checkTiedEightPlace(tabla);
     container.innerHTML = `
         <tr class="row-1">
             <td>POS</td>
@@ -46,7 +46,7 @@ const dibujarTablaTerceros = () => {
             <td>DG</td>
         </tr>
     ` + tabla.tabla.map((pais, i) => {
-        const equipo = paises.find(p => p.id === pais.id);   
+        const equipo = paises.find(p => p.id === pais.id);
         return `
         <tr class=row-${i+1}>
             <td>${i + 1}</td>
@@ -57,14 +57,43 @@ const dibujarTablaTerceros = () => {
             <td>${pais.dg}</td>
         </tr>
     `}).join('')
+    checkTiedEightPlace(tabla);
+}
+
+const arraySelected = []
+
+export const setTercerosSeleccion = (arr) => {
+    arraySelected.splice(0, arraySelected.length, ...arr);
+};
+
+let currentUser = null;
+
+export const obtainTerceros = tabla => {
+    tabla.sort((a, b) => {
+        if (b.puntos !== a.puntos) {
+            return b.puntos - a.puntos;
+        } 
+        if (b.dg !== a.dg) {
+            return b.dg - a.dg;
+        }
+        if (b.golesAFavor !== a.golesAFavor) {
+            return b.golesAFavor - a.golesAFavor;
+        } else {
+            return arraySelected.includes(b.id) - arraySelected.includes(a.id);
+        }
+    });
+    return tabla;
 }
 
 const checkTiedEightPlace = (tabla) => {
     const equipoOcho = tabla.tabla[7];
+    const equipoNueve = tabla.tabla[8]
     const popupButton = document.getElementById("popup-mostrar")
     const empatados = tabla.tabla.filter(e =>
         e.puntos === equipoOcho.puntos && e.dg === equipoOcho.dg && e.golesAFavor === equipoOcho.golesAFavor
     );
+    const ochoYNueve = equipoOcho.puntos === equipoNueve.puntos && equipoOcho.dg === equipoNueve.dg 
+        && equipoOcho.golesAFavor === equipoNueve.golesAFavor
 
     const arrayMenosOcho = []
 
@@ -76,7 +105,7 @@ const checkTiedEightPlace = (tabla) => {
 
     const allPredicted = predicciones.every(p => p.resultado);
 
-    if (empatados.length <= 1) {
+    if (!ochoYNueve || empatados.length <= 1) {
         popupButton.style.display = 'none';
         return;
     }
@@ -103,12 +132,14 @@ const checkTiedEightPlace = (tabla) => {
         </div>`
     ).join('');
 
-    if (allPredicted) {
+    if (allPredicted && arraySelected.length === 0) {
         popup.showPopover();
     }
-    const arraySelected = []
 
     document.querySelectorAll(".info-equipos-popup").forEach(pais => {
+        if (arraySelected.includes(pais.id)) {
+            pais.style.backgroundColor = "rgba(249, 248, 213, 0.3)";
+        }
         pais.addEventListener("click", () => {
             const id = pais.id;
             const i = arraySelected.indexOf(id);
@@ -160,9 +191,19 @@ const checkTiedEightPlace = (tabla) => {
         }).join('');
     };
 
-    document.getElementById('popup-cerrar').onclick = () => {
+    if (arraySelected.length > 0) {
+        ordenaTerceros();
+    }
+
+    document.getElementById('popup-cerrar').onclick = async () => {
         ordenaTerceros();
         popup.hidePopover();
+        if (currentUser) {
+            await setDoc(doc(db, "predicciones", currentUser.uid),
+                { tercerosSeleccion: arraySelected },
+                { merge: true }
+            );
+        }
     };
 
     popupButton.addEventListener("click", () => {
@@ -170,13 +211,18 @@ const checkTiedEightPlace = (tabla) => {
             popup.showPopover();
         }
     });
+
+    {return ordenaTerceros}
 };
+
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
         window.location.href = "./iniciar_sesion.html";
         return;
     }
+    currentUser = user;
+
     const snap = await getDocs(collection(db, "predicciones", user.uid, "partidos"));
     snap.forEach(docSnap => {
         const pred = predicciones.find(p => p.matchId === docSnap.id);
@@ -185,6 +231,12 @@ onAuthStateChanged(auth, async (user) => {
             pred.margen = docSnap.data().margen ?? 0;
         }
     });
+
+    const userDoc = await getDoc(doc(db, "predicciones", user.uid));
+    if (userDoc.exists() && userDoc.data().tercerosSeleccion) {
+        arraySelected.splice(0, arraySelected.length, ...userDoc.data().tercerosSeleccion);
+    }
+
     dibujarTablaTerceros();
 });
 

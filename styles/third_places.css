@@ -300,6 +300,8 @@ h3 {
     border: none;
     flex-direction: column;
     background-color: transparent;
+    line-height: 20px;
+    width: 130px;
 }
 
 .info-equipos-popup.selected {
@@ -309,10 +311,17 @@ h3 {
 .nums-popup{ 
     padding-left: 125px;
     text-align: center;
+    line-height: 1.4;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
 }
 
-.nums-popup-dg{
-    padding-left: 132px;
+.nums-popup{ 
+    display: inline;
+    position: static;
+    padding-left: 0;
+    bottom: auto;
 }
 
 #popup-equipos div {
