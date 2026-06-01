@@ -326,6 +326,16 @@ h3 {
     color: rgb(232, 199, 106)
 }
 
+
+
+.grupo-videos {
+    flex-direction: row;
+    gap: 150px;
+}
+
+.video {
+    flex-direction: column;
+}
 h4 {
     color: rgb(232, 199, 106);
 }
