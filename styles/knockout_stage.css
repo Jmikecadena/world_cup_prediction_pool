@@ -4,8 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(10, 17, 30);
-    min-width: 1000px;
-    overflow: auto;
+    
 }
 
 html {
@@ -322,6 +321,24 @@ h3 {
     font-family: Lato;
     font-size: 15px;
     color: #d0c8b2;
+}
+
+@media (max-width: 1600px) {
+    .prediction-content {
+        zoom: 0.83;
+    }
+}
+
+@media (max-width: 1440px) {
+    .prediction-content {
+        zoom: 0.75;
+    }
+}
+
+@media (max-width: 1366px) {
+    .prediction-content {
+        zoom: 0.71;
+    }
 }
 
 
