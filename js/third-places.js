@@ -220,7 +220,7 @@ onAuthStateChanged(auth, async (user) => {
     if (!user) {
         window.location.href = "./iniciar_sesion.html";
         return;
-    }
+}
     currentUser = user;
 
     const snap = await getDocs(collection(db, "predicciones", user.uid, "partidos"));
@@ -238,6 +238,40 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     dibujarTablaTerceros();
+    let arrayFaseFinal = []
+    let arrayFaseGrupos = []
+
+    const querySnapshot = await getDocs(collection(db, "predicciones"));
+
+    await Promise.all(querySnapshot.docs.map(async (userDoc) => {
+        const uid = userDoc.id;
+        const name = userDoc.data().name;
+
+        const [partidosSnap, faseFinalSnap] = await Promise.all([
+            getDocs(collection(db, "predicciones", uid, "partidos")),
+            getDocs(collection(db, "predicciones", uid, "fase_final"))
+        ]);
+
+        if (partidosSnap.size == 72) arrayFaseGrupos.push(name);
+
+        faseFinalSnap.forEach(docSnap => {
+            const equipos = Object.values(docSnap.data());
+            const octavos = equipos.filter(p => p.instancia === 'octavos');
+            const cuartos = equipos.filter(p => p.instancia === 'cuartos');
+            const semis = equipos.filter(p => p.instancia === 'semis');
+            const final = equipos.filter(p => p.instancia === 'final');
+            const campeon = equipos.filter(p => p.instancia === 'campeon');
+            const tercero = equipos.filter(p => p.instancia === 'tercero');
+
+            if (octavos.length === 8 && cuartos.length === 4 && semis.length === 1
+                && final.length === 1 && campeon.length === 1 && tercero.length === 1) {
+                arrayFaseFinal.push(name);
+            }
+        });
+    }));
+
+    console.log("Fase de Grupos completada:", arrayFaseGrupos);
+    console.log("Fase Final completada:", arrayFaseFinal);
 });
 
 
