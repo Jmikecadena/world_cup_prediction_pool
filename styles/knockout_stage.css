@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(10, 17, 30);
-    
 }
 
 html {
@@ -323,22 +322,14 @@ h3 {
     color: #d0c8b2;
 }
 
-@media (max-width: 1600px) {
-    .prediction-content {
-        zoom: 0.83;
-    }
+#knockout-wrapper {
+    transform-origin: top center;
+    transform: scale(1); /* escala base en 1440px */
 }
 
-@media (max-width: 1440px) {
-    .prediction-content {
-        zoom: 0.75;
+@media (max-width: 1920px) {
+    #knockout-wrapper {
+        transform: scale(calc(100vw / 1920));
     }
 }
-
-@media (max-width: 1366px) {
-    .prediction-content {
-        zoom: 0.71;
-    }
-}
-
 
