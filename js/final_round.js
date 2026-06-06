@@ -783,6 +783,16 @@ const restaurarFaseFinal = (tablaMatches) => {
     });
 };
 
+function escalarBracket() {
+    const mcard = document.querySelector('.match-cards');
+    const factor = window.innerWidth / 1920;
+    mcard.style.transformOrigin = 'top center';
+    mcard.style.transform = `scale(${factor})`;
+}
+
+escalarBracket();
+window.addEventListener('resize', escalarBracket);
+
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
         window.location.href = "./iniciar_sesion.html";

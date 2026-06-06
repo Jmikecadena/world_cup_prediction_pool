@@ -141,8 +141,6 @@ li:hover {
     display: flex;
     gap: 40px;
     margin: -35px auto;
-    transform-origin: top center;
-    transform: scale(calc(100vw / 1920));
 }
 
 .ronda {
