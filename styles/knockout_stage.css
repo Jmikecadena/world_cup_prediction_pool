@@ -141,6 +141,8 @@ li:hover {
     display: flex;
     gap: 40px;
     margin: -35px auto;
+    transform-origin: top center;
+    transform: scale(calc(100vw / 1920));
 }
 
 .ronda {
@@ -168,6 +170,7 @@ li:hover {
 
 .matchcard-final {
     flex-direction: column;
+    
 }
 
 #primeros-ocho {
@@ -320,16 +323,5 @@ h3 {
     font-family: Lato;
     font-size: 15px;
     color: #d0c8b2;
-}
-
-#knockout-wrapper {
-    transform-origin: top center;
-    transform: scale(1); /* escala base en 1440px */
-}
-
-@media (max-width: 1920px) {
-    #knockout-wrapper {
-        transform: scale(calc(100vw / 1920));
-    }
 }
 
