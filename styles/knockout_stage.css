@@ -107,15 +107,6 @@ li:hover {
     filter: blur(4px);
 }
 
-#knockout-image {
-    background-image: url("../assets/knockout.jpg");
-    z-index: 1;
-    background-size: cover;
-    width: 1530px;
-    height: 900px;
-    opacity: 0;
-}
-
 .btn-grupo {
     border-radius: 100%;         
     font-size: 14px;
@@ -152,7 +143,7 @@ li:hover {
 .final.ronda {
     position: absolute;
     margin: auto;
-    top: 550px;
+    top: 30vh;
     flex-direction: column;
     align-items: center;
 }
@@ -160,7 +151,7 @@ li:hover {
 .tercer-puesto {
     position: absolute;
     margin: auto;
-    top: 775px;
+    top: 50vh;
     flex-direction: column;
     align-items: center;
 }
